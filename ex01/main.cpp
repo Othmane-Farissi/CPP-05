@@ -1,25 +1,31 @@
-#include "Bureaucrat.hpp"
-#include <iostream>
+#include "Form.hpp"
 
 int main() {
     try {
-        Bureaucrat bureaucrat1("othmane", 50);
-        std::cout << bureaucrat1 << std::endl;
+        // Create a Bureaucrat
+        Bureaucrat bureaucrat("John Doe", 50);
+        std::cout << bureaucrat << std::endl;
 
-        bureaucrat1.incrementGrade();
-        std::cout << bureaucrat1 << std::endl;
+        // Increment and decrement the grade
+        bureaucrat.incrementGrade();
+        std::cout << "Incremented grade: " << bureaucrat.getGrade() << std::endl;
+        bureaucrat.decrementGrade();
+        std::cout << "Decremented grade: " << bureaucrat.getGrade() << std::endl;
 
-        bureaucrat1.decrementGrade();
-        std::cout << bureaucrat1 << std::endl;
+        // Create a Form
+        Form form("Form 1", 75, 100);
+        std::cout << form << std::endl;
 
-        Bureaucrat bureaucrat2("taha", 1);
-        std::cout << bureaucrat2 << std::endl;
+        // Sign the form
+        bureaucrat.signForm();
+        std::cout << bureaucrat << " signed " << form << std::endl;
 
-        bureaucrat2.incrementGrade();  // This should throw GradeTooHighException
-    } catch (const Bureaucrat::GradeTooHighException& e) {
-        std::cout << "Exception caught: " << e.what() << std::endl;
-    } catch (const Bureaucrat::GradeTooLowException& e) {
+        // Attempt to sign the form with a low-grade bureaucrat
+        Bureaucrat lowGradeBureaucrat("Jane Smith", 120);
+        lowGradeBureaucrat.signForm();
+    } catch (const std::exception& e) {
         std::cout << "Exception caught: " << e.what() << std::endl;
     }
+
     return 0;
 }

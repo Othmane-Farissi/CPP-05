@@ -15,7 +15,7 @@ int main() {
         Bureaucrat bureaucrat2("taha", 1);
         std::cout << bureaucrat2 << std::endl;
 
-        bureaucrat2.incrementGrade();  // This should throw GradeTooHighException
+        bureaucrat2.incrementGrade();
     } catch (const Bureaucrat::GradeTooHighException& e) {
         std::cout << "Exception caught: " << e.what() << std::endl;
     } catch (const Bureaucrat::GradeTooLowException& e) {

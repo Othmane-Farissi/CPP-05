@@ -51,6 +51,14 @@ int Bureaucrat::getGrade() const {
     return (this->m_grade);
 }
 
+void    Bureaucrat::signForm(Form form) const {
+    if (form.getIsSigned())
+        std::cout << this->name << " signed " << form.getName() << std::endl;
+    else
+        std::cout << this->name << " couldn't sign " << form.getName() << " because the required grade is " 
+                  << form.getGradeToBeSigned() << " and he's grade is only " << this->m_grade << std::endl;
+}
+
 std::ostream& operator<<(std::ostream& os, const Bureaucrat& bureaucrat) {
     os << bureaucrat.getName() << ",  grade is " << bureaucrat.getGrade();
     return os;

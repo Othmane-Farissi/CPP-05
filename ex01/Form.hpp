@@ -2,21 +2,20 @@
 #define FORM_HPP
 
 #include "Bureaucrat.hpp"
-#include <exception>
 
 class   Form {
     private:
             const std::string name;
             bool isSigned;
-            const int gradeToBeSigned;
-            const int gradeToBeExecute;
+            const int gToBeS;
+            const int gToBeE;
     public:
-            Form(std::string n, bool isHeSigned, int signed, int execute);
+            Form(std::string n , int gSigned, int execute);
             Form(const Form& src);
             Form& operator=(const Form& src);
             ~Form();
 
-            class GadeTooLowException : public std::exception{
+            class GradeTooLowException : public std::exception{
                 public: const char * what() const throw();
             };
             class GradeTooHighException : public std::exception {   
@@ -26,8 +25,11 @@ class   Form {
             std::string getName() const;
             int getGradeToBeSigned() const;
             int getGradeToBeExecute() const;
+            bool getIsSigned() const;
 
             void	beSigned(Bureaucrat& bureaucrat);
 };
+
+std::ostream&   operator<<(std::ostream& os, Form& form);
 
 #endif

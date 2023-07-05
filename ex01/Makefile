@@ -1,4 +1,4 @@
-SRC = main.cpp Bureaucrat.cpp
+SRC = main.cpp Bureaucrat.cpp Form.cpp
 
 CC = c++
 
@@ -6,7 +6,7 @@ CPPFLAGS = -Wextra -Werror -Wall -std=c++98
 
 OBJ = $(SRC:.cpp=.o)
 
-NAME = bureaucrat
+NAME = form
 
 all : $(NAME)
 
