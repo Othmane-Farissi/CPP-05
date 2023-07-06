@@ -51,12 +51,13 @@ int Bureaucrat::getGrade() const {
     return (this->m_grade);
 }
 
-void    Bureaucrat::signForm(Form form) const {
-    if (form.getIsSigned())
-        std::cout << this->name << " signed " << form.getName() << std::endl;
-    else
-        std::cout << this->name << " couldn't sign " << form.getName() << " because the required grade is " 
-                  << form.getGradeToBeSigned() << " and he's grade is only " << this->m_grade << std::endl;
+void Bureaucrat::signForm(Form& form) {
+    try {
+        form.beSigned(*this);
+        std::cout << *this << " signed " << form << std::endl;
+    } catch (const std::exception& e) {
+        std::cout << *this << " couldn't sign " << form << " because " << e.what() << std::endl;
+    }
 }
 
 std::ostream& operator<<(std::ostream& os, const Bureaucrat& bureaucrat) {

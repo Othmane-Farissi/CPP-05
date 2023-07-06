@@ -1,7 +1,11 @@
 #ifndef FORM_HPP
 #define FORM_HPP
 
+#include <string>
+#include <iostream>
 #include "Bureaucrat.hpp"
+
+class Bureaucrat;
 
 class   Form {
     private:
@@ -30,6 +34,6 @@ class   Form {
             void	beSigned(Bureaucrat& bureaucrat);
 };
 
-std::ostream&   operator<<(std::ostream& os, Form& form);
+std::ostream&   operator<<(std::ostream& os, const Form& form);
 
 #endif

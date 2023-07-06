@@ -1,4 +1,6 @@
+#include "Bureaucrat.hpp"
 #include "Form.hpp"
+
 
 int main() {
     try {
@@ -17,15 +19,16 @@ int main() {
         std::cout << form << std::endl;
 
         // Sign the form
-        bureaucrat.signForm();
+        bureaucrat.signForm(form);
         std::cout << bureaucrat << " signed " << form << std::endl;
 
         // Attempt to sign the form with a low-grade bureaucrat
         Bureaucrat lowGradeBureaucrat("Jane Smith", 120);
-        lowGradeBureaucrat.signForm();
+        lowGradeBureaucrat.signForm(form);
     } catch (const std::exception& e) {
         std::cout << "Exception caught: " << e.what() << std::endl;
     }
 
     return 0;
 }
+
