@@ -51,7 +51,7 @@ int Bureaucrat::getGrade() const {
     return (this->m_grade);
 }
 
-void Bureaucrat::signForm(Form& form) {
+void Bureaucrat::signForm(Form form) {
     try {
         form.beSigned(*this);
         std::cout << *this << " signed " << form << std::endl;

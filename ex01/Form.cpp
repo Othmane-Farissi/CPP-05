@@ -47,7 +47,7 @@ bool    Form::getIsSigned() const {
     return this->isSigned;
 }
 
-void    Form::beSigned(Bureaucrat& bureaucrat)
+void Form::beSigned(Bureaucrat& bureaucrat)
 {
     if (bureaucrat.getGrade() <= this->gToBeS)
         this->isSigned = true;
@@ -57,13 +57,12 @@ void    Form::beSigned(Bureaucrat& bureaucrat)
 
 std::ostream& operator<<(std::ostream& os, const Form& form) {
     os << "Form: " << form.getName() << ", Signed: ";
-    if (form.getIsSigned()) {
+    if (form.getIsSigned() == true) {
         os << "Yes";
     } else {
         os << "No";
     }
-    os << ", Grade Required to Sign: " << form.getGradeToBeSigned()
-       << ", Grade Required to Execute: " << form.getGradeToBeExecute();
+    os << ", Grade Required to Sign: " << form.getGradeToBeSigned();
     return os;
 }
 

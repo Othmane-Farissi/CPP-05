@@ -7,7 +7,6 @@
 
 class Form;
 
-
 class Bureaucrat {
         private:
                 const std::string name;
@@ -24,7 +23,7 @@ class Bureaucrat {
                 void    incrementGrade();
                 void    decrementGrade();
 
-                void	signForm(Form& form);
+                void	signForm(Form form);
 
         class GradeTooLowException : public std::exception {   
                 public: const char * what() const throw();
@@ -33,8 +32,6 @@ class Bureaucrat {
                 public: const char * what() const throw();
         };
 };
-
-
 
 std::ostream&  operator<<(std::ostream& os, const Bureaucrat& bureaucrat);
 

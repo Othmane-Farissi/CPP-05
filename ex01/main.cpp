@@ -5,7 +5,7 @@
 int main() {
     try {
         // Create a Bureaucrat
-        Bureaucrat bureaucrat("John Doe", 50);
+        Bureaucrat bureaucrat("Ana", 50);
         std::cout << bureaucrat << std::endl;
 
         // Increment and decrement the grade
@@ -20,10 +20,9 @@ int main() {
 
         // Sign the form
         bureaucrat.signForm(form);
-        std::cout << bureaucrat << " signed " << form << std::endl;
 
         // Attempt to sign the form with a low-grade bureaucrat
-        Bureaucrat lowGradeBureaucrat("Jane Smith", 120);
+        Bureaucrat lowGradeBureaucrat("chi wahed", 120);
         lowGradeBureaucrat.signForm(form);
     } catch (const std::exception& e) {
         std::cout << "Exception caught: " << e.what() << std::endl;
