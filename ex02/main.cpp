@@ -5,8 +5,8 @@
 
 int main() {
     try {
-        Bureaucrat johnDoe("John Doe", 50);
-        Bureaucrat janeSmith("Jane Smith", 120);
+        Bureaucrat johnDoe("othmane1", 50);
+        Bureaucrat janeSmith("othmane2", 120);
 
         ShrubberyCreationForm shrubberyForm("Home");
         RobotomyRequestForm robotomyForm("Target");
