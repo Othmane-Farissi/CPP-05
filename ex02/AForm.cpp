@@ -1,6 +1,6 @@
 #include "AForm.hpp"
 
-AForm::AForm(std::string n, bool isSigned, int gSigned, int execute) : name(n) , isSigned(false) , gToBeS(gSigned) , gToBeE(execute)
+AForm::AForm(std::string n, int gSigned, int execute) : name(n) , isSigned(false) , gToBeS(gSigned) , gToBeE(execute)
 {
     if (this->gToBeS < 1 || this->gToBeE < 1)
         throw GradeTooHighException();

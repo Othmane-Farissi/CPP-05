@@ -14,7 +14,7 @@ class   AForm {
             const int gToBeS;
             const int gToBeE;
     public:
-            AForm(std::string n , bool isSigned, int gSigned, int execute);
+            AForm(std::string n , int gSigned, int execute);
             AForm(const AForm& src);
             AForm& operator=(const AForm& src);
             virtual ~AForm();
