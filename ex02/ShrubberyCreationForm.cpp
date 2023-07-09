@@ -13,6 +13,10 @@ ShrubberyCreationForm&   ShrubberyCreationForm::operator=(const ShrubberyCreatio
     return *this;
 }
 
+const char* ShrubberyCreationForm::OpenFileException::what() const throw() {
+    return "File cannot be opened";
+}
+
 ShrubberyCreationForm::~ShrubberyCreationForm() {}
 
 void    ShrubberyCreationForm::execute(const Bureaucrat& executor) const {
@@ -23,5 +27,6 @@ void    ShrubberyCreationForm::execute(const Bureaucrat& executor) const {
     std::ofstream file((target + "_shrubbery").c_str());
     if (file.is_open())
         file << "ASCCI Trees ." << std::endl;
-    // add throw exception
+    else
+        throw OpenFileException();
 }

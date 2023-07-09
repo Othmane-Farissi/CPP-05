@@ -56,14 +56,12 @@ void AForm::beSigned(Bureaucrat& bureaucrat)
 }
 
 std::ostream& operator<<(std::ostream& os, const AForm& form) {
-    os << "AForm: " << form.getName() << ", Signed: ";
+    os << "Form: " << " ( " << form.getName() << " ) " << ", Signed: ";
     if (form.getIsSigned() == true) {
         os << "Yes";
     } else {
         os << "No";
     }
-    os << ", Grade Required to Sign: " << form.getGradeToBeSigned();
+    os << ", (Grade Required to Sign: " << form.getGradeToBeSigned() << " ,Grade required to execute: " << form.getGradeToBeExecute() << ")";
     return os;
 }
-
-

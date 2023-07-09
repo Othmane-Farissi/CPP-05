@@ -2,30 +2,29 @@
 #include "ShrubberyCreationForm.hpp"
 #include "RobotomyRequestForm.hpp"
 #include "PresidentialPardonForm.hpp"
+#include "Intern.hpp"
 
 int main() {
-    try {
-        Bureaucrat johnDoe("othmane1", 50);
-        Bureaucrat janeSmith("othmane2", 120);
 
-        ShrubberyCreationForm shrubberyForm("Home");
-        RobotomyRequestForm robotomyForm("Target");
-        PresidentialPardonForm pardonForm("Target");
+        Intern intern;
 
-        johnDoe.signForm(shrubberyForm);
-        johnDoe.signForm(robotomyForm);
-        johnDoe.signForm(pardonForm);
+        AForm* shrubberyForm = intern.makeForm("shrubbery creation", "Home");
+        AForm* robotomyForm = intern.makeForm("robotomy request", "Target");
+        AForm* pardonForm = intern.makeForm("presidential pardon", "Target");
 
-        johnDoe.executeForm(shrubberyForm);
-        johnDoe.executeForm(robotomyForm);
-        johnDoe.executeForm(pardonForm);
+        Bureaucrat bureacrat("Othmane", 50);
 
-        janeSmith.executeForm(shrubberyForm);
-        janeSmith.executeForm(robotomyForm);
-        janeSmith.executeForm(pardonForm);
-    } catch (const std::exception& e) {
-        std::cout << "Exception occurred: " << e.what() << std::endl;
-    }
+        bureacrat.signForm(*shrubberyForm);
+        bureacrat.signForm(*robotomyForm);
+        bureacrat.signForm(*pardonForm);
+
+        bureacrat.executeForm(*shrubberyForm);
+        bureacrat.executeForm(*robotomyForm);
+        bureacrat.executeForm(*pardonForm);
+
+        delete shrubberyForm;
+        delete robotomyForm;
+        delete pardonForm;
 
     return 0;
 }

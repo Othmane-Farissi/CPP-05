@@ -1,6 +1,6 @@
 #include "Form.hpp"
 
-Form::Form(std::string n, bool isSigned, int gSigned, int execute) : name(n) , isSigned(false) , gToBeS(gSigned) , gToBeE(execute)
+Form::Form(std::string n, int gSigned, int execute) : name(n) , isSigned(false) , gToBeS(gSigned) , gToBeE(execute)
 {
     if (this->gToBeS < 1 || this->gToBeE < 1)
         throw GradeTooHighException();
@@ -56,13 +56,13 @@ void Form::beSigned(Bureaucrat& bureaucrat)
 }
 
 std::ostream& operator<<(std::ostream& os, const Form& form) {
-    os << "Form: " << form.getName() << ", Signed: ";
+    os << "Form: " << " ( " << form.getName() << " ) " << ", Signed: ";
     if (form.getIsSigned() == true) {
         os << "Yes";
     } else {
         os << "No";
     }
-    os << ", Grade Required to Sign: " << form.getGradeToBeSigned();
+    os << ", (Grade Required to Sign: " << form.getGradeToBeSigned() << " ,Grade required to execute: " << form.getGradeToBeExecute() << ")";
     return os;
 }
 

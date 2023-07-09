@@ -20,10 +20,10 @@ void    RobotomyRequestForm::execute(const Bureaucrat& executor) const {
     if (!getIsSigned()){
         throw GradeTooLowException();
     }
-    else if (executor.getGrade() < getGradeToBeExecute()){
+    if (executor.getGrade() > getGradeToBeExecute()){
         throw GradeTooLowException();
     }
-	if (i++ % 2)
+	if (!(i++ % 2))
 		std::cout << "BRRRRRRRRRRRRRR => " << target << " was robotomized" << std::endl;
 	else
 		std::cout << "Robotomy failed" << std::endl;

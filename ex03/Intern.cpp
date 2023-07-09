@@ -16,8 +16,8 @@ Intern& Intern::operator=(const Intern& src) {
 
 Intern::~Intern() {}
 
-Form* Intern::makeForm(const std::string& formName, const std::string& target) const {
-    Form* form = nullptr;
+AForm* Intern::makeForm(const std::string& formName, const std::string& target) const {
+    AForm* form = 0;
 
     if (formName == "presidential pardon")
         form = new PresidentialPardonForm(target);

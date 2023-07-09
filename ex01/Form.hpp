@@ -9,12 +9,12 @@ class Bureaucrat;
 
 class   Form {
     private:
-            std::string name;
+            const std::string name;
             bool isSigned;
             const int gToBeS;
             const int gToBeE;
     public:
-            Form(std::string n , bool isSigned, int gSigned, int execute);
+            Form(std::string n , int gSigned, int execute);
             Form(const Form& src);
             Form& operator=(const Form& src);
             ~Form();

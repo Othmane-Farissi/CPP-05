@@ -3,7 +3,8 @@
 
 int main() {
     try {
-        Bureaucrat bureaucrat1("othmane", 50);
+        Bureaucrat bureaucrat1("othmane1", 150);
+        // Bureaucrat bureaucrat1("othmane1", 151);
         std::cout << bureaucrat1 << std::endl;
 
         bureaucrat1.incrementGrade();
@@ -12,7 +13,7 @@ int main() {
         bureaucrat1.decrementGrade();
         std::cout << bureaucrat1 << std::endl;
 
-        Bureaucrat bureaucrat2("taha", 1);
+        Bureaucrat bureaucrat2("othmane2", 1);
         std::cout << bureaucrat2 << std::endl;
 
         bureaucrat2.incrementGrade();
