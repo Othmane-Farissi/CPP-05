@@ -5,9 +5,9 @@ RobotomyRequestForm::RobotomyRequestForm(std::string target) : AForm("Robotomy r
 
 RobotomyRequestForm::RobotomyRequestForm(const RobotomyRequestForm& src) : AForm(src) , target(src.target) {}
 
-RobotomyRequestForm& RobotomyRequestForm::operator=(const RobotomyRequestForm& other) {
-    if (this != &other) {
-        target = other.target;
+RobotomyRequestForm& RobotomyRequestForm::operator=(const RobotomyRequestForm& src) {
+        if (this != &src) {
+        target = src.target;
     }
     return *this;
 }

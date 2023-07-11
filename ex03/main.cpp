@@ -5,26 +5,30 @@
 #include "Intern.hpp"
 
 int main() {
-
+    try {
         Intern intern;
 
-        AForm* shrubberyForm = intern.makeForm("shrubbery creation", "Home");
-        AForm* robotomyForm = intern.makeForm("robotomy request", "Target");
-        AForm* pardonForm = intern.makeForm("presidential pardon", "Target");
+        AForm* shrubberyForm = intern.makeForm("ShrubberyCreationForm", "Home");
+        AForm* robotomyForm = intern.makeForm("RobotomyRequestForm", "Target");
+        AForm* pardonForm = intern.makeForm("PresidentialPardonForm", "Target");
 
-        Bureaucrat bureacrat("Othmane", 50);
+        Bureaucrat bureaucrat("Othmane", 50);
 
-        bureacrat.signForm(*shrubberyForm);
-        bureacrat.signForm(*robotomyForm);
-        bureacrat.signForm(*pardonForm);
+        bureaucrat.signForm(*shrubberyForm);
+        bureaucrat.signForm(*robotomyForm);
+        bureaucrat.signForm(*pardonForm);
 
-        bureacrat.executeForm(*shrubberyForm);
-        bureacrat.executeForm(*robotomyForm);
-        bureacrat.executeForm(*pardonForm);
+        bureaucrat.executeForm(*shrubberyForm);
+        bureaucrat.executeForm(*robotomyForm);
+        bureaucrat.executeForm(*pardonForm);
 
         delete shrubberyForm;
         delete robotomyForm;
         delete pardonForm;
+    } catch (const std::exception& e) {
+        std::cout << e.what() << std::endl;
+    }
 
     return 0;
 }
+

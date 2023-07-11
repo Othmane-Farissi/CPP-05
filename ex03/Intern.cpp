@@ -16,20 +16,39 @@ Intern& Intern::operator=(const Intern& src) {
 
 Intern::~Intern() {}
 
-AForm* Intern::makeForm(const std::string& formName, const std::string& target) const {
-    AForm* form = 0;
+const char* Intern::NotFound::what() const throw() {
+	return "Form not Found";
+}
 
-    if (formName == "presidential pardon") {
-        form = new PresidentialPardonForm(target);
-    } else if (formName == "robotomy request") {
-        form = new RobotomyRequestForm(target);
-    } else if (formName == "shrubbery creation") {
-        form = new ShrubberyCreationForm(target);
-    } else {
-        std::cout << "Intern can not create a form called " << formName << std::endl;
-    }
+static AForm	*makePresident(const std::string target)
+{
+	return (new PresidentialPardonForm(target));
+}
 
-    std::cout << "Intern creates " << formName << std::endl;
+static AForm	*makeRobot(const std::string target)
+{
+	return (new RobotomyRequestForm(target));
+}
 
-    return form;
+static AForm	*makeShrubbery(const std::string target)
+{
+	return (new ShrubberyCreationForm(target));
+}
+
+AForm	*Intern::makeForm(const std::string formName, const std::string target) const
+{
+	AForm *(*all_forms[])(const std::string target) = {&makePresident, &makeRobot, &makeShrubbery};
+	std::string forms[] = {"PresidentialPardonForm", "RobotomyRequestForm", "ShrubberyCreationForm"};
+
+	for (int i = 0; i < 3; i++)
+	{
+		if (formName == forms[i])
+		{
+			std::cout << "Intern creates " << formName << std::endl;
+			return (all_forms[i](target));
+		}
+	}
+
+	std::cout << "Intern can not create a form called " << formName << std::endl;
+	throw NotFound();
 }
